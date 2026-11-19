@@ -56,6 +56,8 @@ def chunk_document(document: Document, chunk_size: int = 500, overlap: int = 75)
         if piece:
             chunks.append(Document(content=piece, metadata={**document.metadata, "chunk_index": chunk_index}))
             chunk_index += 1
+        if start + chunk_size >= len(text):
+            break
         start += step
 
     return chunks
