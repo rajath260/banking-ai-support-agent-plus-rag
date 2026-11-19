@@ -8,8 +8,8 @@ An advanced continuation of [`banking-ai-support-agent`](https://github.com/raja
 - [x] Validated Python tool calling
 - [x] MCP server/client with dynamic tool discovery
 - [x] Multi-turn conversation memory with an in-memory checkpointer
-- [ ] Banking FAQ knowledge base and document loading
-- [ ] Document chunking and metadata
+- [x] Fictional banking FAQ knowledge base and document loading
+- [x] Character-based chunking with overlap and source metadata
 - [ ] Local text embeddings
 - [ ] Vector storage and semantic retrieval
 - [ ] RAG answer generation with source-grounded context
@@ -45,6 +45,10 @@ An MCP server exposes mock banking functions over stdio. The standalone MCP clie
 
 ## Structure
 - app/state.py: state schema for the basic graph
+- app/rag/document_loader.py: Markdown loading, chunking and source metadata
+- knowledge_base/: fictional banking FAQ source documents
+- tests/test_document_loader.py: offline document-loading and chunking tests
+- docs/rag-document-loading-and-chunking.md: RAG Part 1 concepts and limitations
 - app/banking_tools.py: fictional read-only banking functions
 - app/graph.py: original deterministic LangGraph workflow
 - app/main.py: run the original deterministic workflow
@@ -169,7 +173,9 @@ A real banking application needs authentication, authorization at every tool bou
 4. Connect an MCP client and discover/invoke tools (implemented).
 5. Add conversation history with LangGraph checkpointing (implemented in-memory).
 6. Add retries, durable checkpoint storage, robust error handling and tracing.
-7. Add RAG for banking FAQs.
+7. Load fictional banking FAQs and split them into overlapping chunks (implemented).
+8. Generate local embeddings and store vectors for semantic retrieval.
+9. Add source-grounded RAG answers and combine retrieval with MCP tools.
 8. Prepare architecture diagrams and interview explanations.
 
 ## Interview summary
