@@ -1,4 +1,23 @@
-# Banking AI Support Agent
+# Banking AI Support Agent — Plus RAG
+
+An advanced continuation of [`banking-ai-support-agent`](https://github.com/rajath260/banking-ai-support-agent). This repository starts from the complete, tested LangGraph + MCP + tool-calling + conversation-memory implementation and will extend it with Retrieval-Augmented Generation (RAG).
+
+## Development roadmap
+- [x] LangGraph workflows and state management
+- [x] Hugging Face model integration (provider/credits required for live inference)
+- [x] Validated Python tool calling
+- [x] MCP server/client with dynamic tool discovery
+- [x] Multi-turn conversation memory with an in-memory checkpointer
+- [ ] Banking FAQ knowledge base and document loading
+- [ ] Document chunking and metadata
+- [ ] Local text embeddings
+- [ ] Vector storage and semantic retrieval
+- [ ] RAG answer generation with source-grounded context
+- [ ] Combine RAG retrieval with MCP tools in one agent
+
+> Safety: this is an educational prototype using fictional in-memory banking data. It is not connected to a bank or payment network. Never commit real customer data, credentials, tokens or account details.
+
+---
 
 An educational project for learning Python, LangGraph, Hugging Face, LLM tool calling, MCP and agent architecture through a fictional banking support use case.
 
