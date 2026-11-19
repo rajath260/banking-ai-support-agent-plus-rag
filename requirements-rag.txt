@@ -1,0 +1,3 @@
+# Optional local embedding dependency. Installs the model runtime separately
+# from the core agent so the existing project remains lightweight.
+sentence-transformers>=3.0.0
