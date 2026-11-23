@@ -11,8 +11,7 @@ An advanced continuation of [`banking-ai-support-agent`](https://github.com/raja
 - [x] Fictional banking FAQ knowledge base and document loading
 - [x] Character-based chunking with overlap and source metadata
 - [x] Local text embedding adapter (Sentence Transformers; optional dependency)
-- [ ] Vector storage and semantic retrieval
-- [ ] Vector storage and semantic retrieval
+- [x] Local Chroma vector storage and semantic retrieval
 - [ ] RAG answer generation with source-grounded context
 - [ ] Combine RAG retrieval with MCP tools in one agent
 
@@ -48,10 +47,12 @@ An MCP server exposes mock banking functions over stdio. The standalone MCP clie
 - app/state.py: state schema for the basic graph
 - app/rag/document_loader.py: Markdown loading, chunking and source metadata
 - app/rag/embeddings.py: local sentence embedding adapter (optional install via requirements-rag.txt)
+- app/rag/vector_store.py: persistent Chroma storage and semantic retrieval (optional install via requirements-rag.txt)
 - knowledge_base/: fictional banking FAQ source documents
 - tests/test_document_loader.py: offline document-loading and chunking tests
 - docs/rag-document-loading-and-chunking.md: RAG Part 1 concepts and limitations
 - docs/rag-embeddings.md: RAG Part 2 embedding concepts and setup
+- docs/rag-vector-store.md: RAG Part 3 vector storage and semantic retrieval
 - app/banking_tools.py: fictional read-only banking functions
 - app/graph.py: original deterministic LangGraph workflow
 - app/main.py: run the original deterministic workflow
