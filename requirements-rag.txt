@@ -1,3 +1,4 @@
 # Optional local embedding dependency. Installs the model runtime separately
 # from the core agent so the existing project remains lightweight.
 sentence-transformers>=3.0.0
+chromadb>=0.5.0,<2.0.0
