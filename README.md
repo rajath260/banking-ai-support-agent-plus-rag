@@ -12,6 +12,7 @@ An advanced continuation of [`banking-ai-support-agent`](https://github.com/raja
 - [x] Character-based chunking with overlap and source metadata
 - [x] Local text embedding adapter (Sentence Transformers; optional dependency)
 - [x] Local Chroma vector storage and semantic retrieval
+- [x] End-to-end local RAG indexing and semantic retrieval demo
 - [ ] RAG answer generation with source-grounded context
 - [ ] Combine RAG retrieval with MCP tools in one agent
 
@@ -48,11 +49,14 @@ An MCP server exposes mock banking functions over stdio. The standalone MCP clie
 - app/rag/document_loader.py: Markdown loading, chunking and source metadata
 - app/rag/embeddings.py: local sentence embedding adapter (optional install via requirements-rag.txt)
 - app/rag/vector_store.py: persistent Chroma storage and semantic retrieval (optional install via requirements-rag.txt)
+- app/rag/pipeline.py: connects loading, chunking, embeddings, indexing and retrieval
+- app/rag/demo.py: interactive local retrieval demo (`python -m app.rag.demo`)
 - knowledge_base/: fictional banking FAQ source documents
 - tests/test_document_loader.py: offline document-loading and chunking tests
 - docs/rag-document-loading-and-chunking.md: RAG Part 1 concepts and limitations
 - docs/rag-embeddings.md: RAG Part 2 embedding concepts and setup
 - docs/rag-vector-store.md: RAG Part 3 vector storage and semantic retrieval
+- docs/rag-end-to-end-retrieval.md: RAG Part 4 end-to-end indexing and retrieval
 - app/banking_tools.py: fictional read-only banking functions
 - app/graph.py: original deterministic LangGraph workflow
 - app/main.py: run the original deterministic workflow
@@ -178,9 +182,9 @@ A real banking application needs authentication, authorization at every tool bou
 5. Add conversation history with LangGraph checkpointing (implemented in-memory).
 6. Add retries, durable checkpoint storage, robust error handling and tracing.
 7. Load fictional banking FAQs and split them into overlapping chunks (implemented).
-8. Generate local embeddings and store vectors for semantic retrieval.
-9. Add source-grounded RAG answers and combine retrieval with MCP tools.
-8. Prepare architecture diagrams and interview explanations.
+8. Generate local embeddings, persist vectors in Chroma and retrieve relevant FAQ chunks (implemented).
+9. Add source-grounded RAG answer generation and combine retrieval with MCP tools.
+10. Prepare architecture diagrams and interview explanations.
 
 ## Interview summary
 "I built a fictional banking support agent using LangGraph and a Hugging Face hosted model. It discovers read-only tools from an MCP server at runtime, exposes their schemas to the model, validates that requested tools were discovered, invokes them through the MCP client and returns their results to the model. The MCP server owns the fixed demo account context, while LangGraph orchestrates model and tool execution."
