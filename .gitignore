@@ -6,3 +6,6 @@ __pycache__/
 .DS_Store
 .vscode/
 .idea/
+
+# Local Chroma vector database files
+data/chroma/
